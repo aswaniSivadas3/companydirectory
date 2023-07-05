@@ -1,0 +1,354 @@
+main {
+    background-color: black
+    /* background-image: URL("../imgs/webb.png"); */
+}
+
+#title {    
+    font-family: 'joanne-light';
+    text-align: center;
+    color:white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color:rgb(29, 2, 80);
+    font-weight: bolder;
+}
+
+#functionRow {
+    margin: 1.5%;
+}
+
+.buttonRow {
+    margin: auto;
+    text-align: center;
+    color: rgb(130, 110, 167);
+}
+
+.btn.btn-primary{
+    background-color: rgb(130, 110, 167);
+    border:2px rgb(130, 110, 167);
+    align-self: auto;
+}
+
+.btn.btn-primary:hover {
+    background-color: #008CBA; 
+    border-color:#008CBA ;
+}
+
+.btn.btn-primary:active {
+    background-color:#008CBA;
+    border:#008CBA;
+    border-color: #008CBA;
+
+}
+.searchBar {
+    margin: auto;
+    text-align: center;
+}
+
+#searchField {
+    width:40%
+}
+
+#search{
+  background-color: white;  
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 500px;
+    background-color: whitesmoke;
+}
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th,
+td {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+th {
+    background: gray;
+    color: white;
+}
+
+td, th {
+    border-style: solid;
+    border-width: 1px !important;
+}
+
+.tableRow:hover {
+    cursor: pointer;
+    background-color: #96d4e9 !important;
+}
+
+.tableIcon{
+    text-align: center;
+}
+
+#resetBtn{
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.rowButtons {
+    width: 25%;
+    text-align: center;
+}
+
+.formLocation{
+    background-color: whitesmoke !important;
+}
+
+.submitBtn{
+    margin: auto !important;
+}
+
+.tableHolder {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2.5%;
+    border-style: double;
+    border-color: black;
+}
+
+.searchForm{
+    width: 80%;
+    margin: auto;
+}
+
+#justifySearch{
+    display: flex;
+    justify-content: center;
+}
+
+#searchSelect{
+    background-color: white;
+    color: black;
+}
+
+#search:hover{
+    cursor: pointer;
+}
+
+.reset{
+    padding-top: 0.4%
+}
+
+.btnAllign{
+    display: inherit;
+}
+
+.cancelBtn{
+    margin-right: 5%;
+}
+
+.userInfo {
+    background-color: whitesmoke !important;
+}
+
+.delete {
+    text-align: center;
+    color: red;
+}
+
+.tableFixHeadModals {
+    overflow-y: auto;
+    height: 100%;
+    background-color: whitesmoke;
+}
+.tableFixHeadModals thead th {
+    position: sticky;
+    top: 0;
+}
+
+.tableHead{
+    background-color: gray;
+    color: white;
+}
+
+.depTableRow:hover, .locTableRow:hover {
+    cursor: pointer;
+    background-color: antiquewhite !important;
+}
+
+.deleteBtn {
+    margin: auto;
+    text-align: center;
+}
+
+.modalIcon{
+    width: 75%;
+}
+
+#add_user_location{
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    html {
+        font-size: 0.75em;
+    }
+
+    .tableHolder {
+        width: 95%;
+    }
+
+    td {
+        padding: 4px 8px;
+        border: 0.5px solid #ccc;
+    }
+
+    th {
+        padding: 0px;
+        text-align: center !important;
+    }
+
+}
+
+@media only screen and (max-width: 1025px) {
+
+    html {
+        font-size: 0.65em;
+    }
+
+    .tableHolder {
+        width: 98%;
+    }
+
+    td {
+        padding: 2px 4px;
+        border: 0.5px solid #ccc;
+    }
+
+    .tableIcon {
+        display: none;
+    }
+
+    th {
+        padding: 0px;
+        text-align: center !important;
+    }
+
+}
+
+@media only screen and (max-width: 750px) {
+    .input-group{
+        display: block !important;
+    }
+
+    #searchSelect {
+        width: 100% !important;
+    }
+
+    #searchField {
+        width: 100% !important;
+    }
+
+    #search{
+        width: 50%;
+        margin: auto !important;
+        margin-top: 2% !important;
+        justify-content: center;
+    }
+    
+    #searchBar{
+        margin: 2.5% !important;
+    }
+
+    .reset{
+        padding-top: 6%;
+    }
+
+    .modalIcon {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .hider1 {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .hider2 {
+        display:none;
+    }
+    .reset{
+        padding-top: 10%;
+    }
+}
+
+#todayDate {
+    color: white;
+    margin-top: 1%;
+    font-size: 20px;
+    font-family: "joanne-light";
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    
+    
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .buttonLink {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  #resetBtn{
+    color: white;
+  }
