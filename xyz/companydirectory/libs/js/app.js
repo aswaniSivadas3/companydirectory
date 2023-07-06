@@ -72,12 +72,13 @@ $(function(){
                     dataType: 'json',
                     async: false,
                     success: function(results) {
-                        location.reload();
+                    getAllUsers();   
                     },
             
                     error: function(jqXHR, textStatus, errorThrown) {
                         console.log(errorThrown);
                     }
+                    
                 }) 
             })
         });
@@ -151,8 +152,8 @@ $(function(){
     // Confirm Edit User -> PHP Routine
     $("#editUserForm").submit(function(e) {
 
-        e.preventDefault();
-        e.stopPropagation();
+        // e.preventDefault();
+        // e.stopPropagation();
 
         $.ajax({
             type: 'POST',
@@ -168,7 +169,10 @@ $(function(){
             dataType: 'json',
             async: false,
             success: function(results) {
-                location.reload();
+               
+                getAllUsers();
+                
+
             },
 
             error: function(jqXHR, textStatus, errorThrown) {
@@ -217,8 +221,8 @@ $(function(){
     // Confirm Add User -> PHP Routine
     $("#newUserForm").submit(function(e) {
 
-        e.preventDefault();
-        e.stopPropagation();
+        // e.preventDefault();
+        // e.stopPropagation();
 
         $.ajax({
             type: 'POST',
@@ -232,8 +236,8 @@ $(function(){
             },
             dataType: 'json',
             async: false,
-            success: function(results) {
-                location.reload();
+            success: function(results) {                
+                getAllUsers();
             },
 
             error: function(jqXHR, textStatus, errorThrown) {
@@ -317,7 +321,7 @@ $(function(){
                 dataType: 'json',
                 async: false,
                 success: function(results) {
-                    location.reload();
+                   
                 },
         
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -347,7 +351,7 @@ $(function(){
                     dataType: 'json',
                     async: false,
                     success: function(results) {
-                        location.reload();
+                        
                     },
             
                     error: function(jqXHR, textStatus, errorThrown) {
@@ -376,7 +380,7 @@ $(function(){
             dataType: 'json',
             async: false,
             success: function(results) {
-                location.reload();
+                
             },
 
             error: function(jqXHR, textStatus, errorThrown) {
@@ -393,32 +397,7 @@ $(function(){
     $(`#locations`).on('click', event => {
 
         // Generate the html table with locations list 
-        $.ajax({
-            type: 'GET',
-            url: "../companydirectory/libs/php/getLocations.php",
-            data: {},
-            dataType: 'json',
-            async: false,
-            success: function(results) {
-                let data = results["data"];
-                let locArray = [];
-                let loc_html = ``;
-
-                for(let i=0; i < data.length; i++){
-                    locArray.push(data[i]);
-                }
-
-                for(let i=0; i < locArray.length; i++){
-                    loc_html += `<tr id="${locArray[i].id}" class=" locationEdit locTableRow" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#locationEditModal" locationName="${locArray[i].location}" locationID="${locArray[i].id}" departments="${locArray[i].departments}"><td scope="row" class="locationHeader">${locArray[i].location}</td></tr>`;
-                }
-
-                $('#locationsList').html(loc_html);
-            },
-
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-            }
-        })   
+        ViewLocationTable();   
 
 
         // Edit Location Modal
@@ -486,7 +465,7 @@ $(function(){
             dataType: 'json',
             async: false,
             success: function(results) {
-                location.reload();
+                
             },
     
             error: function(jqXHR, textStatus, errorThrown) {
@@ -516,7 +495,7 @@ $(function(){
             dataType: 'json',
             async: false,
             success: function(results) {
-                location.reload();
+                
             },
     
             error: function(jqXHR, textStatus, errorThrown) {
@@ -768,10 +747,11 @@ function getAllUsers(){
         async: false,
         success: function(results) {
 
+            
             // Update Main HTML Table  
             let data = results["data"];              
             let usersArray = [];
-            let html_table = ``;
+            let html_table = '';
             
             for(let i=0; i < data.length; i++){
                 usersArray.push(data[i]);
@@ -781,7 +761,7 @@ function getAllUsers(){
                 html_table += `<tr class="tableRow" id="${usersArray[i].id}"><td scope="row" class="tableIcon"><i class="fas fa-user-circle fa-lg"></i></td><td scope="row">${usersArray[i].firstName}</td><td scope="row">${usersArray[i].lastName}</td><td scope="row" class="hider1">${usersArray[i].email}</td><td scope="row" class="hider1">${usersArray[i].jobTitle}</td><td scope="row" class="hider2">${usersArray[i].department}</td><td scope="row" class="hider2">${usersArray[i].location}</td></tr>`;
             };
             
-            $('#mainTable').html(html_table); 
+            $('#mainTable').empty().append(html_table); 
 
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -831,3 +811,33 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     }    
+
+function ViewLocationTable()
+{
+    $.ajax({
+        type: 'GET',
+        url: "../companydirectory/libs/php/getLocations.php",
+        data: {},
+        dataType: 'json',
+        async: false,
+        success: function(results) {
+            let data = results["data"];
+            let locArray = [];
+            let loc_html = ``;
+
+            for(let i=0; i < data.length; i++){
+                locArray.push(data[i]);
+            }
+
+            for(let i=0; i < locArray.length; i++){
+                loc_html += `<tr id="${locArray[i].id}" class=" locationEdit locTableRow" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#locationEditModal" locationName="${locArray[i].location}" locationID="${locArray[i].id}" departments="${locArray[i].departments}"><td scope="row" class="locationHeader">${locArray[i].location}</td></tr>`;
+            }
+
+            $('#locationsList').html(loc_html);
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    })
+}

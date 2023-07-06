@@ -20,7 +20,7 @@
 	</head>
 
 	<body>
-		<main>
+		
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="btn-group-vertical" id="">
@@ -114,7 +114,7 @@
                         
                         <div class="modal-body">
 
-                              <div class="form-group row">
+                              <div class="form-group row" hidden="hidden">
                                 <label for="user_id" class="col-4 col-form-label">Staff ID</label> 
                                 <div class="col-8">
                                     <div class="input-group">
@@ -320,7 +320,7 @@
                                 <div class="form-group row submitBtn">
                                     <div class="col-8 btnAllign">
                                         <button type="button" class="btn btn-secondary cancelBtn" data-bs-dismiss="modal">Cancel</button>
-                                        <button id="editUserConfirm" name="editUserConfirm" type="submit" class="btn btn-success">Confirm <i class="fas fa-check"></i> </button>
+                                        <button id="editUserConfirm" name="editUserConfirm" type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm <i class="fas fa-check"></i> </button>
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +347,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delUserConfirm">Delete <i class="fas fa-trash-alt"></i></button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delUserConfirm" value = "Refresh" onclick="history.go(0)">Delete <i class="fas fa-trash-alt"></i></button>
                         </div>
                     </div>
                     </div>
@@ -454,7 +454,7 @@
                             <div class="modal-footer">
                                 <div class="form-group row submitBtn">
                                     <div class="col-8">
-                                        <button id="newUserConfirm" name="newUserConfirm" type="submit" class="btn btn-success">Add Staff</button>
+                                        <button id="newUserConfirm" name="newUserConfirm" type="submit" class="btn btn-success" data-bs-dismiss="modal">Add Staff</button>
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +546,7 @@
                             <div class="modal-footer">
                                 <div class="form-group row submitBtn">
                                     <div class="col-8">
-                                        <button id="newDepConfirm" name="newDepConfirm" type="submit" class="btn btn-success">Add Department </button>
+                                        <button id="newDepConfirm" name="newDepConfirm" type="submit" class="btn btn-success" data-bs-dismiss="modal">Add Department </button>
                                     </div>
                                 </div>
                             </div>
@@ -608,7 +608,7 @@
                                 <div class="form-group row submitBtn">
                                     <div class="col-8 btnAllign">
                                         <button type="button" class="btn btn-secondary cancelBtn" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="submit" class="btn btn-success" id="editDepConfirm">Confirm</button>
+                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="editDepConfirm">Confirm</button>
                                     </div>
                                 </div>
                             </div>
@@ -710,7 +710,7 @@
                                     <div class="form-group row submitBtn">
                                         <div class="col-8 btnAllign">
                                             <button type="button" class="btn btn-secondary cancelBtn" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-success" id="editLocConfirm">Confirm</button>
+                                            <button type="submit" class="btn btn-success" id="editLocConfirm" data-bs-dismiss="modal">Confirm</button>
                                         </div>
                                     </div>
                                 </div>
@@ -777,7 +777,7 @@
                             <div class="modal-footer">
                                 <div class="form-group row submitBtn">
                                     <div class="col-8">
-                                        <button id="addLocConfirm" name="addLocConfirm" type="submit" class="btn btn-success">Add Location </button>
+                                        <button id="addLocConfirm" name="addLocConfirm" type="submit" class="btn btn-success" data-bs-dismiss="modal">Add Location </button>
                                     </div>
                                 </div>
                             </div>
@@ -789,7 +789,7 @@
 
             </div>
 
-		</main>
+		
 			
 		<!-- jQuery Script -->
 		<script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
