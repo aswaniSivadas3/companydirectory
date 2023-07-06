@@ -352,3 +352,8 @@ td, th {
   #resetBtn{
     color: white;
   }
+
+  .navBarStyle{
+    font-size:30px;
+    cursor:pointer;
+  }
