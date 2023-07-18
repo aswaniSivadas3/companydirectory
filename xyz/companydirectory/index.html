@@ -512,8 +512,6 @@
                             </div>
                             
                             <div class="modal-body">
-
-                               
                                 <div class="form-group row">
                                     <label for="newDepName" class="col-4 col-form-label">Department Name</label> 
                                     <div class="col-8">
@@ -579,6 +577,8 @@
                                                 <i class="fas fa-building"></i>
                                             </div>
                                             <input id="editDepName" name="editDepName" type="text" class="form-control" required>
+                                            <input id="editDepId" name="editDepId" type="hidden" class="form-control" required>
+
                                         </div> 
                                         </div>
                                     </div>
@@ -599,7 +599,7 @@
                                 </div> 
 
                                 <div class="col-8 deleteBtn" id="deleteDepBtn">
-                                    <button type="button" class="btn btn-danger" id="departmentDelete" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#departmentDeleteModal">Delete Department</button>
+                                    <button type="button" class="btn btn-danger" id="departmentDelete" data-bs-dismiss="modal">Delete Department</button>
                                 </div>
 
                             </div>
@@ -619,6 +619,7 @@
                 </form>
 
                 <!-- Delete Department Modal -->
+                <form id="deleteDeptForm">
                 <div class="modal fade" id="departmentDeleteModal" tabindex="-1" aria-labelledby="departmentDeleteModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -630,16 +631,17 @@
                             
                             <h3>You are about to delete: <br></h3>
                             <h2 id="delDepName"></h2>
+                            <h2 id="delDepId"></h2>
     
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delDepConfirm">Delete</button>
+                            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" id="delDepConfirm">Delete</button>
                         </div>
                     </div>
                     </div>
                 </div>
-
+            </form>
                 <!-- Locations Modal -->
                 <div class="modal fade" id="locationsModal" tabindex="-1" aria-labelledby="locationsModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -683,9 +685,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 
-                                <div class="modal-body">
-
-                                       
+                                <div class="modal-body">                                       
                                     <div class="form-group row">
                                         <label for="edit_location_name" class="col-4 col-form-label">Location Name</label> 
                                         <div class="col-8">
@@ -701,9 +701,8 @@
                                     </div>
 
                                     <div class="col-8 deleteBtn" id="deleteLocBtn">
-                                        <button type="button" class="btn btn-danger" id="locationDelete" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#locationDeleteModal">Delete Location</button>
+                                        <button type="button" class="btn btn-danger" id="locationDelete" data-bs-dismiss="modal">Delete Location</button>
                                     </div>
-
                                 </div>
 
                                 <div class="modal-footer">
@@ -787,6 +786,69 @@
                     </div>
                 </form>
 
+                <div id="cantDeleteLocationModal" class="modal fade" tabindex="-1" data-bs-backdrop="false" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+                    <!--   the last two classes centre the modal and, if the content is too long, ensures  -->
+                    <!--   that the header and footer are always on display by making the body scroll -->
+                    
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      
+                      <!-- As the backdrop is disabled we can use the Bootstrap shadow class to add definition to the dialog -->
+                      
+                      <div class="modal-content shadow"> 
+                               
+                        <div class="modal-header">
+                          <h5 class="modal-title"><b>Cannot remove location ...</b></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                  
+                        <div class="modal-body">
+                  
+                          You cannot remove the entry for <span id="cantDeleteLocationName" class="fw-bold"></span> because it has <span id="pc" class="fw-bold"></span> departments assigned to it.
+                  
+                        </div>
+                  
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                <div id="cantDeleteDepartmentModal" class="modal fade" tabindex="-1" data-bs-backdrop="false" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+                    <!--   the last two classes centre the modal and, if the content is too long, ensures  -->
+                    <!--   that the header and footer are always on display by making the body scroll -->
+                    
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      
+                      <!-- As the backdrop is disabled we can use the Bootstrap shadow class to add definition to the dialog -->
+                      
+                      <div class="modal-content shadow"> 
+                               
+                        <div class="modal-header">
+                          <h5 class="modal-title"><b>Cannot remove department ...</b></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                  
+                        <div class="modal-body">
+                  
+                          You cannot remove the entry for <span id="cantDeleteDeptName" class="fw-bold"></span> because it has <span id="empCount" class="fw-bold"></span> employees assigned to it.
+                  
+                        </div>
+                  
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                  
             </div>
 
 		
