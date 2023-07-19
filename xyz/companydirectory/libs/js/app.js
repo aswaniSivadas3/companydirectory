@@ -884,6 +884,12 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     }    
 
+$("#mySidenav").hover(function() {
+        
+      }, function() {
+        closeNav();
+      })
+
 function ViewLocationTable()
 {
     $.ajax({
