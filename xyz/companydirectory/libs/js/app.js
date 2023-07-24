@@ -797,13 +797,13 @@ function generateDepartmentList(){
             for(let i=0; i < depArray.length; i++){
                 // dep_html += `<tr id="${depArray[i].id}" class=" departmentEdit depTableRow" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#departmentEditModal" title="${depArray[i].department}" location="${depArray[i].locationID}" users="${depArray[i].users}" departmentID="${depArray[i].id}"><td class="tableIcon"><i class="fas fa-building"></i></td><td scope="row" class="department"> ${depArray[i].department} </td><td scope="row" class="department_location"> ${depArray[i].location} </td>`;
                 dep_html += `<tr>
-                <td class="align-middle text-nowrap departmentName">
+                <td class="align-middle text-nowrap d-md-table-cell departmentName">
                 ${depArray[i].department}
                 </td>
-                <td class="align-middle text-nowrap d-none d-md-table-cell">
+                <td class="align-middle text-nowrap d-md-table-cell">
                 ${depArray[i].location}
                 </td>
-                <td class="align-middle text-end text-nowrap">
+                <td class="align-middle text-end text-nowrap d-none d-md-table-cell">
                   <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editDepartmentModal" data-id="${depArray[i].id}">
                     <i class="fa-solid fa-pencil fa-fw"></i>
                   </button>
@@ -851,19 +851,19 @@ function getAllUsers(){
                // html_table += `<tr class="tableRow" id="${usersArray[i].id}"><td scope="row" class="tableIcon"><i class="fas fa-user-circle fa-lg"></i></td><td scope="row">${usersArray[i].firstName}</td><td scope="row">${usersArray[i].lastName}</td><td scope="row" class="hider1">${usersArray[i].email}</td><td scope="row" class="hider1">${usersArray[i].jobTitle}</td><td scope="row" class="hider2">${usersArray[i].department}</td><td scope="row" class="hider2">${usersArray[i].location}</td></tr>`;
 
                 html_table += `<tr>
-                <td class="align-middle text-nowrap userName">
+                <td class="align-middle text-nowrap d-md-table-cell userName">
                 ${usersArray[i].firstName}, ${usersArray[i].lastName}
                 </td>
-                <td class="align-middle text-nowrap d-none d-md-table-cell">
+                <td class="align-middle text-nowrap  d-md-table-cell">
                 ${usersArray[i].department}
                 </td>
-                <td class="align-middle text-nowrap d-none d-md-table-cell">
+                <td class="align-middle text-nowrap  d-md-table-cell">
                 ${usersArray[i].location}
                 </td>
-                <td class="align-middle text-nowrap d-none d-md-table-cell">
+                <td class="align-middle text-nowrap  d-md-table-cell">
                 ${usersArray[i].email}
                 </td>
-                <td class="text-end text-nowrap">
+                <td class="text-end text-nowrap d-none d-md-table-cell">
                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewPersonnelModal" data-id="${usersArray[i].id}">
                     <i class="fa-solid fa-eye fa-fw"></i>
                   </button>
@@ -953,10 +953,10 @@ function ViewLocationTable()
             }
 
             for(let i=0; i < locArray.length; i++){
-                loc_html += `<tr><td class="align-middle text-nowrap locationName"> ${locArray[i].location}</td><td class="align-middle text-end text-nowrap">
-                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editLocationModal" data-id="${locArray[i].id}"><i class="fa-solid fa-pencil fa-fw"></i>
+                loc_html += `<tr><td class="align-middle text-nowrap  d-md-table-cell locationName"> ${locArray[i].location}</td><td class="align-middle text-end text-nowrap">
+                <button type="button" class="btn btn-info btn-sm d-none d-md-table-cell" data-bs-toggle="modal" data-bs-target="#editLocationModal" data-id="${locArray[i].id}"><i class="fa-solid fa-pencil fa-fw"></i>
                 </button >
-                <button type="button" class="btn btn-info btn-sm btn-delete" data-id="${locArray[i].id}">
+                <button type="button" class="btn btn-info btn-sm d-none d-md-table-cell btn-delete " data-id="${locArray[i].id}">
                   <i class="fa-solid fa-trash fa-fw"></i>
                 </button>
               </td>
